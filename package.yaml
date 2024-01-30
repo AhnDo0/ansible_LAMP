@@ -1,0 +1,27 @@
+- name: Install httpd & php packages
+  hosts: webserver
+  vars:
+    var1: "test team"
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: latest
+
+    - name: install php packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - php
+        - php-common
+        - php-opcache
+        - php-cli
+        - php-gd
+        - php-curl
+        - php-mysqlnd
+        - php-mysqli
+    - name: create index.php file from template
+      ansible.builtin.template:
+        src: source/index.php.j2
+        dest: /var/www/html/index.php

@@ -1,0 +1,7 @@
+- name: copy index.php to webserver
+  hosts: webserver
+  tasks:
+    - name: copy index.php to webserver
+      copy:
+        src: source/index.php
+        dest: /var/www/html/
