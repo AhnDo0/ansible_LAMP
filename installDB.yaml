@@ -22,4 +22,4 @@
     - name: execute_sql
       shell: "mysql -uroot < /tmp/create_db_webtest.sql"
       register: db_result
-      ignor_errors: yes
+      ignore_errors: yes
