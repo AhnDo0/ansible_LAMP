@@ -1,0 +1,6 @@
+---
+- name: use lamb role
+  hosts: webserver
+  become: true
+  roles:
+    - lamb

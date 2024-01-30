@@ -1,0 +1,18 @@
+---
+# tasks file for lamb_db
+- name: Install maria db
+  yum:
+    name: mariadb105-server
+    state: latest
+
+- name: maria db is running
+  service:
+    name: mariadb
+    state: started
+
+- name: copy sql file
+  copy:
+    src: source/create_db_webtest.sql
+    dest: /tmp/create_db_webtest.sql
+  notify:
+    - execute_sql

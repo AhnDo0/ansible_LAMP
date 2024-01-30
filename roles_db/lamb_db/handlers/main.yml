@@ -1,0 +1,7 @@
+---
+# handlers file for lamb_db
+- name: execute_sql
+  shell: "mysql -uroot < /tmp/create_db_webtest.sql"
+  register: db_result
+  ignore_errors: yes
+

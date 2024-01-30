@@ -1,0 +1,6 @@
+---
+- name: use lamb-db-role
+  hosts: dbserver
+  become: true
+  roles:
+    - lamb_db
